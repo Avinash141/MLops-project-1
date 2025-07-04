@@ -160,7 +160,7 @@ def create_visualizations(df):
     plt.savefig('feature_boxplots.png', dpi=300, bbox_inches='tight')
     plt.show()
     
-    print("✓ Visualizations created and saved!")
+    print("Visualizations created and saved!")
 
 def main():
     """Main function to run data exploration."""

@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLOps Assignment 1 - Housing Price Prediction</title>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.8in;
+            }
+            .no-print { display: none; }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #e9e9e9;
+        }
+        
+        h1 {
+            color: #000;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #000;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #000;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        h4 {
+            color: #000;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            border: 1px solid #e9e9e9;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #fff;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+        
+        code {
+            background-color: #fff;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+        }
+        
+        pre {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        blockquote {
+            border-left: 4px solid #fff;
+            margin: 15px 0;
+            padding-left: 15px;
+            font-style: italic;
+            color: #000;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #95a5a6;
+            margin: 30px 0;
+        }
+        
+        .print-btn {
+            background-color: #fff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        
+        .print-btn:hover {
+            background-color: #fff;
+        }
+        
+        .header-info {
+            background-color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .figure-caption {
+            text-align: center;
+            font-style: italic;
+            color: #000;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-info">
+        <h1>MLOps Assignment 1 - Housing Price Prediction</h1>
+        <p><strong>Name: Avinash Singh</strong></p>
+        <p><strong>Roll Number: G24Ai1027</strong></p>
+    </div>
+    
+    <p>MLOps Assignment 1 - Housing Price Prediction Project Documentation</p>
+
+<p>Project Overview</p>
+
+<p>Project Name: Housing Price Prediction using Machine Learning<br />
+Assignment: MLOps Assignment 1<br />
+Student: Avinash Singh<br />
+GitHub Repository: https://github.com/Avi2001-dot/MLops-project-1<br />
+Roll Number: G24Ai1027  </p>
+
+<p>Project Objective
+Design, implement, and automate a complete machine learning workflow to predict house prices using classical machine learning models with proper MLOps practices including version control, CI/CD pipelines, and automated testing.</p>
+
+<hr />
+
+<h2>Assignment Requirements Fulfilled</h2>
+
+<h3>Core Requirements</h3>
+
+<ul>
+<li>Environment Setup: Conda environment with requirements.txt</li>
+<li>GitHub Repository: Command-line setup (no web upload)</li>
+<li>Three Regression Models: Linear Regression, Random Forest, Gradient Boosting</li>
+<li>Hyperparameter Tuning: Minimum 3 hyperparameters per model</li>
+<li>Performance Comparison: MSE and R² metrics</li>
+<li>Modular Code Structure: All functions in utils.py</li>
+<li>CI/CD Pipeline: GitHub Actions automation</li>
+<li>Branch Strategy: main, reg, hyper branches</li>
+<li>Complete Documentation: Comprehensive project documentation</li>
+</ul>
+
+<h3>Technical Specifications</h3>
+
+<ul>
+<li>Programming Language: Python 3.8+</li>
+<li>ML Framework: scikit-learn</li>
+<li>Data Processing: pandas, numpy</li>
+<li>Visualization: matplotlib, seaborn</li>
+<li>Testing: Custom test suite</li>
+<li>CI/CD: GitHub Actions</li>
+<li>Version Control: Git with proper branching strategy</li>
+</ul>
+
+<hr />
+
+<h2>Project Architecture</h2>
+
+<h3>Repository Structure</h3>
+
+<pre><code>MLops-project-1/
+├── .github/workflows/
+│   └── ci.yml                 # GitHub Actions CI/CD pipeline
+├── utils.py                   # Utility functions for ML workflow
+├── regression.py              # Main regression analysis script
+├── data_exploration.py        # Data exploration and visualization
+├── test_regression.py         # Test suite for validation
+├── setup.py                   # Automated setup script
+├── requirements.txt           # Python dependencies
+├── README.md                  # Project overview
+├── INSTRUCTIONS.md            # Setup and execution guide
+└── project_doc.md             # This comprehensive documentation
+</code></pre>
+
+<h3>Branching Strategy</h3>
+
+<ul>
+<li>main`: Production-ready code with merged features</li>
+<li>reg`: Basic regression models implementation</li>
+<li>hyper: Hyperparameter tuning implementation</li>
+</ul>
+
+<hr />
+
+<h2>Dataset Information</h2>
+
+<h3>Boston Housing Dataset</h3>
+
+<ul>
+<li>Source: http://lib.stat.cmu.edu/datasets/boston</li>
+<li>Samples: 506 housing records</li>
+<li>Features: 13 input features + 1 target variable</li>
+<li>Target: MEDV (Median home value in $1000s)</li>
+</ul>
+
+<h3>Features Description</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CRIM</td>
+  <td>Per capita crime rate by town</td>
+</tr>
+<tr>
+  <td>ZN</td>
+  <td>Proportion of residential land zoned for lots over 25,000 sq.ft.</td>
+</tr>
+<tr>
+  <td>INDUS</td>
+  <td>Proportion of non-retail business acres per town</td>
+</tr>
+<tr>
+  <td>CHAS</td>
+  <td>Charles River dummy variable (1 if tract bounds river; 0 otherwise)</td>
+</tr>
+<tr>
+  <td>NOX</td>
+  <td>Nitric oxides concentration (parts per 10 million)</td>
+</tr>
+<tr>
+  <td>RM</td>
+  <td>Average number of rooms per dwelling</td>
+</tr>
+<tr>
+  <td>AGE</td>
+  <td>Proportion of owner-occupied units built prior to 1940</td>
+</tr>
+<tr>
+  <td>DIS</td>
+  <td>Weighted distances to five Boston employment centres</td>
+</tr>
+<tr>
+  <td>RAD</td>
+  <td>Index of accessibility to radial highways</td>
+</tr>
+<tr>
+  <td>TAX</td>
+  <td>Full-value property-tax rate per $10,000</td>
+</tr>
+<tr>
+  <td>PTRATIO</td>
+  <td>Pupil-teacher ratio by town</td>
+</tr>
+<tr>
+  <td>B</td>
+  <td>1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town</td>
+</tr>
+<tr>
+  <td>LSTAT</td>
+  <td>% lower status of the population</td>
+</tr>
+<tr>
+  <td>MEDV</td>
+  <td>Median value of owner-occupied homes in $1000s <em>(Target)</em></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Data Preprocessing</h3>
+
+<ul>
+<li>Train-Test Split: 80-20 split with random state 42</li>
+<li>Feature Scaling: StandardScaler for all numerical features</li>
+<li>Missing Values: None (dataset is clean)</li>
+<li>Data Validation: Comprehensive checks for data integrity</li>
+</ul>
+
+<hr />
+
+<h2>Machine Learning Models</h2>
+
+<h3>Model 1: Linear Regression</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="n">LinearRegression</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>Hyperparameters Tuned:
+- <code>fit_intercept</code>: [True, False]
+- <code>copy_X</code>: [True, False]<br />
+- <code>positive</code>: [True, False]</p>
+
+<p>Performance:
+- R² Score: ~0.67
+- MSE: ~24.29
+- Cross-validation R²: ~0.72</p>
+
+<h3>Model 2: Random Forest Regressor</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Hyperparameters Tuned:
+- <code>n_estimators</code>: [50, 100, 200]
+- <code>max_depth</code>: [3, 5, 7, None]
+- <code>min_samples_split</code>: [2, 5, 10]</p>
+
+<p>Performance:
+- R² Score: ~0.89
+- MSE: ~7.91
+- Cross-validation R²: ~0.83</p>
+
+<h3>Model 3: Gradient Boosting Regressor</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Hyperparameters Tuned:
+- <code>n_estimators</code>: [50, 100, 200]
+- <code>learning_rate</code>: [0.01, 0.1, 0.2]
+- <code>max_depth</code>: [3, 5, 7]</p>
+
+<p>Performance:
+- R² Score: ~0.92
+- MSE: ~6.21
+- Cross-validation R²: ~0.85</p>
+
+<hr />
+
+<h2>Performance Analysis</h2>
+
+<h3>Model Comparison</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>MSE</th>
+  <th>R² Score</th>
+  <th>CV R² Mean</th>
+  <th>CV R² Std</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Linear Regression</td>
+  <td>24.29</td>
+  <td>0.6688</td>
+  <td>0.7244</td>
+  <td>0.0635</td>
+</tr>
+<tr>
+  <td>Random Forest</td>
+  <td>7.91</td>
+  <td>0.8921</td>
+  <td>0.8262</td>
+  <td>0.0475</td>
+</tr>
+<tr>
+  <td>Gradient Boosting</td>
+  <td>6.21</td>
+  <td>0.9153</td>
+  <td>0.8511</td>
+  <td>0.0546</td>
+</tr>
+</tbody>
+</table>
+
+<h3><strong>Key Insights</strong></h3>
+
+<ol>
+<li><strong>Best Performing Model</strong>: Gradient Boosting Regressor</li>
+<li><strong>Significant Improvement</strong>: Random Forest and Gradient Boosting significantly outperform Linear Regression</li>
+<li><strong>Consistency</strong>: All models show consistent performance across cross-validation folds</li>
+<li><strong>Feature Importance</strong>: RM (rooms) and LSTAT (lower status %) are most predictive</li>
+</ol>
+
+<h3><strong>Hyperparameter Tuning Impact</strong></h3>
+
+<ul>
+<li><strong>Linear Regression</strong>: Minimal improvement (~1-2%)</li>
+<li><strong>Random Forest</strong>: Moderate improvement (~5-8%)</li>
+<li><strong>Gradient Boosting</strong>: Significant improvement (~8-12%)</li>
+</ul>
+
+<hr />
+
+<h2><strong>Technical Implementation</strong></h2>
+
+<h3><strong>Core Functions (utils.py)</strong></h3>
+
+<ul>
+<li><code>load_data()</code>: Loads Boston Housing dataset from CMU repository</li>
+<li><code>preprocess_data()</code>: Handles train-test split and feature scaling</li>
+<li><code>get_models()</code>: Returns dictionary of regression models</li>
+<li><code>evaluate_model()</code>: Computes performance metrics</li>
+<li><code>hyperparameter_tuning()</code>: Performs grid search optimization</li>
+<li><code>plot_results()</code>: Creates performance visualization plots</li>
+</ul>
+
+<h3><strong>Main Workflow (regression.py)</strong></h3>
+
+<ul>
+<li>Command-line interface with multiple execution modes</li>
+<li>Supports basic regression, hyperparameter tuning, or both</li>
+<li>Automated results saving and visualization</li>
+<li>Comprehensive performance comparison</li>
+</ul>
+
+<h3><strong>Data Exploration (data_exploration.py)</strong></h3>
+
+<ul>
+<li>Dataset overview and statistical analysis</li>
+<li>Feature correlation analysis</li>
+<li>Visualization of key relationships</li>
+<li>Distribution analysis and outlier detection</li>
+</ul>
+
+<h3><strong>Testing Suite (test_regression.py)</strong></h3>
+
+<ul>
+<li>Unit tests for data loading and preprocessing</li>
+<li>Model initialization and evaluation tests</li>
+<li>Hyperparameter grid validation</li>
+<li>End-to-end workflow testing</li>
+</ul>
+
+<hr />
+
+<h2><strong>CI/CD Pipeline</strong></h2>
+
+<h3><strong>GitHub Actions Workflow (.github/workflows/ci.yml)</strong></h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Housing Price Prediction CI/CD Pipeline</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">reg</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">hyper</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</code></pre>
+</div>
+
+<h3><strong>Pipeline Features</strong></h3>
+
+<ul>
+<li><strong>Multi-Python Testing</strong>: Python 3.8 and 3.9</li>
+<li><strong>Automated Testing</strong>: Runs complete test suite</li>
+<li><strong>Code Quality</strong>: Linting with flake8</li>
+<li><strong>Code Formatting</strong>: Black formatter checks</li>
+<li><strong>Artifact Management</strong>: Stores results as artifacts</li>
+<li><strong>Deployment</strong>: Automated deployment on main branch</li>
+</ul>
+
+<h3><strong>Pipeline Steps</strong></h3>
+
+<ol>
+<li><strong>Environment Setup</strong>: Install dependencies</li>
+<li><strong>Code Quality</strong>: Linting and formatting checks</li>
+<li><strong>Data Validation</strong>: Test data loading functionality</li>
+<li><strong>Model Testing</strong>: Basic regression model validation</li>
+<li><strong>Hyperparameter Testing</strong>: Advanced model tuning (non-main branches)</li>
+<li><strong>Artifact Storage</strong>: Save results for analysis</li>
+<li><strong>Deployment</strong>: Deploy complete analysis (main branch only)</li>
+</ol>
+
+<hr />
+
+<h2><strong>Setup and Usage</strong></h2>
+
+<h3><strong>Environment Setup</strong></h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># Create conda environment</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>housing-regression<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>-y
+
+<span class="c1"># Activate environment</span>
+conda<span class="w"> </span>activate<span class="w"> </span>housing-regression
+
+<span class="c1"># Install dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre>
+</div>
+
+<h3><strong>Execution Commands</strong></h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># Run complete analysis</span>
+python<span class="w"> </span>regression.py<span class="w"> </span>--mode<span class="w"> </span>both<span class="w"> </span>--save-results
+
+<span class="c1"># Run basic regression only</span>
+python<span class="w"> </span>regression.py<span class="w"> </span>--mode<span class="w"> </span>basic<span class="w"> </span>--save-results
+
+<span class="c1"># Run hyperparameter tuning only</span>
+python<span class="w"> </span>regression.py<span class="w"> </span>--mode<span class="w"> </span>hyperparameter<span class="w"> </span>--save-results
+
+<span class="c1"># Run data exploration</span>
+python<span class="w"> </span>data_exploration.py
+
+<span class="c1"># Run tests</span>
+python<span class="w"> </span>test_regression.py
+</code></pre>
+</div>
+
+<h3><strong>Git Workflow</strong></h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Avi2001-dot/MLops-project-1.git
+
+<span class="c1"># Check branches</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a
+
+<span class="c1"># Switch to specific branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>reg<span class="w">    </span><span class="c1"># Basic regression</span>
+git<span class="w"> </span>checkout<span class="w"> </span>hyper<span class="w">  </span><span class="c1"># Hyperparameter tuning</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w">   </span><span class="c1"># Complete implementation</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h2><strong>Results and Outputs</strong></h2>
+
+<h3><strong>Generated Files</strong></h3>
+
+<ul>
+<li><code>basic_regression_results.csv</code>: Basic model performance metrics</li>
+<li><code>hyperparameter_tuned_results.csv</code>: Tuned model performance metrics</li>
+<li><code>dataset_exploration.png</code>: Data visualization plots</li>
+<li><code>feature_correlations.png</code>: Feature importance analysis</li>
+<li><code>feature_boxplots.png</code>: Feature distribution analysis</li>
+</ul>
+
+<h3><strong>Performance Metrics</strong></h3>
+
+<ul>
+<li><strong>Mean Squared Error (MSE)</strong>: Lower values indicate better performance</li>
+<li><strong>R² Score</strong>: Higher values indicate better fit (maximum 1.0)</li>
+<li><strong>Cross-validation R²</strong>: Average performance across multiple folds</li>
+<li><strong>Standard Deviation</strong>: Consistency measure across folds</li>
+</ul>
+
+<hr />
+
+<h2><strong>Key Achievements</strong></h2>
+
+<h3><strong>MLOps Best Practices</strong></h3>
+
+<ol>
+<li><strong>Version Control</strong>: Proper Git branching strategy</li>
+<li><strong>Automated Testing</strong>: Comprehensive test suite</li>
+<li><strong>CI/CD Integration</strong>: GitHub Actions pipeline</li>
+<li><strong>Code Quality</strong>: Linting and formatting standards</li>
+<li><strong>Documentation</strong>: Complete project documentation</li>
+<li><strong>Reproducibility</strong>: Fixed random seeds and environment management</li>
+</ol>
+
+<h3><strong>Machine Learning Excellence</strong></h3>
+
+<ol>
+<li><strong>Model Diversity</strong>: Three different algorithm families</li>
+<li><strong>Hyperparameter Optimization</strong>: Grid search with cross-validation</li>
+<li><strong>Performance Evaluation</strong>: Multiple metrics and validation strategies</li>
+<li><strong>Feature Engineering</strong>: Proper preprocessing and scaling</li>
+<li><strong>Data Validation</strong>: Comprehensive data quality checks</li>
+</ol>
+
+<hr />
+
+<h2><strong>Troubleshooting Guide</strong></h2>
+
+<h3><strong>Common Issues</strong></h3>
+
+<ol>
+<li><strong>Module Not Found</strong>: Ensure conda environment is activated</li>
+<li><strong>Network Errors</strong>: Check internet connection for data loading</li>
+<li><strong>Permission Denied</strong>: Verify GitHub credentials and repository access</li>
+<li><strong>Dependency Conflicts</strong>: Use exact versions from requirements.txt</li>
+</ol>
+
+<h3><strong>Solutions</strong></h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="c1"># Environment issues</span>
+conda<span class="w"> </span>deactivate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>housing-regression
+
+<span class="c1"># Package issues</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Git issues</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;YourUsername&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;your.email@example.com&quot;</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h2><strong>References and Resources</strong></h2>
+
+<h3><strong>Dataset Reference</strong></h3>
+
+<ul>
+<li>Boston Housing Dataset: http://lib.stat.cmu.edu/datasets/boston</li>
+<li>Scikit-learn Documentation: https://scikit-learn.org/stable/</li>
+</ul>
+
+<h3><strong>Technical Documentation</strong></h3>
+
+<ul>
+<li>Python: https://docs.python.org/3/</li>
+<li>Pandas: https://pandas.pydata.org/docs/</li>
+<li>NumPy: https://numpy.org/doc/</li>
+<li>Matplotlib: https://matplotlib.org/stable/contents.html</li>
+<li>GitHub Actions: https://docs.github.com/en/actions</li>
+</ul>
+
+<h3><strong>MLOps Resources</strong></h3>
+
+<ul>
+<li>Git Best Practices: https://git-scm.com/doc</li>
+<li>CI/CD Pipelines: https://github.com/features/actions</li>
+<li>Machine Learning Workflows: https://ml-ops.org/</li>
+</ul>
+
+<hr />
+
+<p><strong>GitHub Repository</strong>: https://github.com/Avi2001-dot/MLops-project-1<br />
+<strong>Email</strong>: avinashsinghcr@gmail.com  </p>
+
+<hr />
+
+<h2><strong>Conclusion</strong></h2>
+
+<p>This project successfully demonstrates a complete MLOps workflow for machine learning model development, including:</p>
+
+<ul>
+<li><strong>Comprehensive ML Pipeline</strong>: From data loading to model evaluation</li>
+<li><strong>Advanced Model Optimization</strong>: Hyperparameter tuning with cross-validation</li>
+<li><strong>Production-Ready Code</strong>: Modular, tested, and documented</li>
+<li><strong>Automated CI/CD</strong>: GitHub Actions integration</li>
+<li><strong>Best Practices</strong>: Version control, testing, and documentation</li>
+</ul>
+
+<p>The Gradient Boosting Regressor achieved the best performance with an R² score of 0.92, demonstrating the effectiveness of ensemble methods for regression tasks. The complete MLOps workflow ensures reproducibility, maintainability, and scalability of the machine learning solution.</p>
+
+</body>
+</html>
