@@ -187,16 +187,16 @@ The project includes automated CI/CD pipeline that:
 
 ### 9. Assignment Requirements Checklist
 
-- ✅ Conda environment setup
-- ✅ Requirements.txt file
-- ✅ GitHub repository with command line setup
-- ✅ Three regression models (Linear, Random Forest, Gradient Boosting)
-- ✅ Hyperparameter tuning (3+ parameters per model)
-- ✅ Performance comparison (MSE/R²)
-- ✅ Modular code structure with utils.py
-- ✅ GitHub Actions CI/CD pipeline
-- ✅ Three branches (main, reg, hyper)
-- ✅ Proper documentation
+- Conda environment setup
+- Requirements.txt file
+- GitHub repository with command line setup
+- Three regression models (Linear, Random Forest, Gradient Boosting)
+- Hyperparameter tuning (3+ parameters per model)
+- Performance comparison (MSE/R²)
+- Modular code structure with utils.py
+- GitHub Actions CI/CD pipeline
+- Three branches (main, reg, hyper)
+- Proper documentation
 
 ### 10. Troubleshooting
 
@@ -233,14 +233,14 @@ For your assignment report, document:
 
 ### 12. Next Steps
 
-1. ✅ Complete the implementation
-2. ✅ Run all tests and verify functionality
-3. ✅ Set up GitHub repository with all branches
-4. ✅ Push code to GitHub
-5. ✅ Verify CI/CD pipeline works
-6. 📝 Create assignment report (PDF)
-7. 📝 Include GitHub repository link in report
-8. 📝 Document all steps and results
+1. Complete the implementation
+2. Run all tests and verify functionality
+3. Set up GitHub repository with all branches
+4. Push code to GitHub
+5. Verify CI/CD pipeline works
+6. Create assignment report (PDF)
+7. Include GitHub repository link in report
+8. Document all steps and results
 
 ### Contact Information
 - **Student**: Avinash Singh
