@@ -1,7 +1,7 @@
 # Housing Price Prediction - MLOps Assignment 1
 
 ## GitHub Repository
-**Repository Link**: https://github.com/Avi2001-dot/HousingRegression
+**Repository Link**: https://github.com/Avi2001-dot/MLops-project-1
 
 ## Project Overview
 This project implements a complete machine learning workflow to predict house prices using classical machine learning models on the Boston Housing dataset.
